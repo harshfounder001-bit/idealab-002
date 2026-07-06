@@ -76,4 +76,18 @@ Follow these instructions to get a copy of the project up and running on your lo
    ```bash
    flutter run -d chrome
 
-   
+
+## 📅 Maintenance Schedule
+
+To keep the application secure, fast, and operating within Firebase's free tier limits, follow this standard maintenance routine:
+
+### Every 6 Months (The "Tune-Up")
+* **Update Dependencies:** Keep packages secure and bug-free by running `flutter pub outdated` to check for old packages, followed by `flutter pub upgrade`. (Always test the app thoroughly after updating).
+* **Clean Firebase Storage:** Navigate to the Firebase Console and delete unused files (e.g., old profile pictures, assets from rejected projects) to prevent crossing the 5GB free tier threshold.
+* **Purge Inactive Users:** Remove accounts of graduated or long-inactive students from Firebase Authentication and Firestore to keep queries fast and the database secure.
+
+### Every 1 Year (The "Deep Clean")
+* **Upgrade Flutter SDK:** Run `flutter upgrade` in your terminal to update the core engine, followed by `flutter doctor` to ensure your system health is optimal. Resolve any deprecated code warnings.
+* **Full Database Backup:** Open the Google Cloud Console (linked to your Firebase project) and use the **Firestore Export** tool to download a complete backup of your database to a secure hard drive.
+* **Audit Security & Admins:** Review your Firestore Rules to ensure any newly added collections are locked down with `isAdmin()` or `isAuth()`. Audit the `users` collection and downgrade the `role` of any administrators who have left the organization.
+* **Optimize Firestore Indexes:** Check the Firestore > Indexes tab in the Firebase Console. Delete any unused composite indexes to prevent hitting Firebase index limits and to optimize database write speeds.
